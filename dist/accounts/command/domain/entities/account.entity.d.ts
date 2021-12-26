@@ -1,0 +1,33 @@
+import { Customer } from 'src/customers/command/domain/entities/customer.entity';
+import { AppNotification } from 'src/app/application/notification';
+export declare class BankAccount {
+    private id;
+    private number;
+    private balance;
+    private isLocked;
+    private customer;
+    private createdAt;
+    private updatedAt;
+    private constructor();
+    static from(id: number, number: string, balance: number, isLocked: boolean, customer: Customer, createdAt: string, updatedAt: string): BankAccount;
+    depositMoney(amount: number): void;
+    depositValidation(amount: number): AppNotification;
+    withdrawMoney(amount: number): void;
+    withdrawValidation(amount: number): AppNotification;
+    private validateAmount;
+    private validateBankAccount;
+    private validateBalance;
+    canBeWithdrawed(amount: number): boolean;
+    doesNotExist(): boolean;
+    exist(): boolean;
+    lock(): void;
+    unLock(): void;
+    hasIdentity(): boolean;
+    getId(): number;
+    getNumber(): string;
+    getBalance(): number;
+    isIsLocked(): boolean;
+    getCustomer(): Customer;
+    getCreatedAt(): string;
+    getUpdatedAt(): string;
+}
